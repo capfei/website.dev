@@ -4,8 +4,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Autocomplete from '../components/Navigation/Ui/Autocomplete'
-import spdxLicenseIds from 'spdx-license-ids'
-import deprecatedSpdxLicenseIds from 'spdx-license-ids/deprecated'
+import spdxLicenseIds from '@capfei/licenses-exceptions/licenses-index.json'
+import deprecatedSpdxLicenseIds from '@capfei/licenses-exceptions/licenses-deprecated.json'
 import { customLicenseIds } from '../utils/utils'
 import LicensePickerUtils from '../components/LicensePicker/utils'
 

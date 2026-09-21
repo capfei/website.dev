@@ -4,7 +4,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Autocomplete from '../Navigation/Ui/Autocomplete'
-import LicenseExceptions from 'licenses-exceptions'
+import exceptionIds from '@capfei/licenses-exceptions/exceptions-index.json'
 
 export default class SpdxExceptionPicker extends Component {
   static propTypes = {
@@ -15,7 +15,7 @@ export default class SpdxExceptionPicker extends Component {
   constructor(props) {
     super(props)
     this._typeahead = React.createRef()
-    this.exceptions = [...LicenseExceptions].sort()
+    this.exceptions = [...exceptionIds].sort()
   }
 
   onKeyPress = event => {
