@@ -63,6 +63,7 @@ async function handleListResponse(response) {
 export function post(url, token, payload) {
   return fetch(url, {
     headers: getHeaders(token),
+    mode: 'cors',
     method: 'POST',
     body: JSON.stringify(payload)
   }).then(handleResponse)
