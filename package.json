@@ -40,7 +40,7 @@
     "react-virtualized": "^9.19.1",
     "recharts": "^1.4.2",
     "redux": "^3.7.2",
-    "redux-persist": "^4.6.0",
+    "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "sass": "^1.83.0",
     "spdx-compare": "^1.0.0",
