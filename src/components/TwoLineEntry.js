@@ -19,7 +19,7 @@ export default class TwoLineEntry extends React.Component {
   }
 
   static defaultProps = {
-    onClick: () => {}
+    onClick: () => { }
   }
 
   expandIcon = value => {
@@ -83,7 +83,8 @@ export default class TwoLineEntry extends React.Component {
           </div>
         </div>
         {buttons}
-        {!isEmpty && panel && <div className="list-panel">{panel}</div>}
+        {/* Temporarily comment out the expanded panel to verify */}
+        {/* !isEmpty && panel && <div className="list-panel">{panel}</div> */}
       </div>
     )
   }
