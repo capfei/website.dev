@@ -83,8 +83,7 @@ export default class TwoLineEntry extends React.Component {
           </div>
         </div>
         {buttons}
-        {/* Temporarily comment out the expanded panel to verify */}
-        {/* !isEmpty && panel && <div className="list-panel">{panel}</div> */}
+        {!isEmpty && panel && <div className="list-panel">{panel}</div>}
       </div>
     )
   }
