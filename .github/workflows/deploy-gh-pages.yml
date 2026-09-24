@@ -27,8 +27,8 @@ jobs:
 
       - name: Build
         env:
-          # Served from https://capfei.github.io/website/, so assets and routes live under /website.
-          PUBLIC_URL: /website
+          # Served from https://capfei.github.io/website.dev/, so assets and routes live under /website.
+          PUBLIC_URL: /website.dev
           REACT_APP_SERVER: https://api.clearlydefined.io
           CI: false
         run: npm run build
