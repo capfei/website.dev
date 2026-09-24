@@ -81,6 +81,7 @@ class ComponentList extends React.Component {
   }
 
   toggleExpanded(component) {
+    console.trace('toggleExpanded called for:', component);
     const { onChange } = this.props
     onChange && onChange(component, { ...component, expanded: !component.expanded })
     this.incrementSequence()
