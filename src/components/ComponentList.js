@@ -45,7 +45,8 @@ class ComponentList extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.definitions.sequence !== prevProps.definitions.sequence) this.incrementSequence()
     if (this.props.curations.sequence !== prevProps.curations.sequence) this.incrementSequence()
-    if (this.props.sequence !== prevProps.sequence) this.incrementSequence()
+    // passing sequence as a prop and calling incrementSequence on change creates a loop:
+    //if (this.props.sequence !== prevProps.sequence) this.incrementSequence()
 
     // FIX: Check length change instead of deep isEqual on entire array to prevent continuous re-render updates
     if (this.props.list?.length !== prevProps.list?.length) this.incrementSequence()
@@ -81,9 +82,10 @@ class ComponentList extends React.Component {
   }
 
   toggleExpanded(component) {
-    console.trace('toggleExpanded called for:', component);
     const { onChange } = this.props
-    onChange && onChange(component, { ...component, expanded: !component.expanded })
+    //onChange && onChange(component, { ...component, expanded: !component.expanded })
+    // Pass field as 'expanded' so parent handlers know it's purely a UI toggle
+    onChange && onChange(component, { ...component, expanded: !component.expanded }, 'expanded')
     this.incrementSequence()
   }
 

@@ -259,6 +259,7 @@ class PageBrowse extends SystemManagedList {
   }
 
   async updateData(continuationToken) {
+    console.log('updateData called');
     const { activeFilters, activeSort, activeName } = this.state
     const query = Object.assign({}, activeFilters)
     if (continuationToken) query.continuationToken = continuationToken
