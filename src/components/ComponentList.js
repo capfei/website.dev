@@ -3,7 +3,6 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import isEqual from 'lodash/isEqual'
 import FormGroup from 'react-bootstrap/lib/FormGroup'
 import { RowEntityList, DefinitionEntry } from './'
 import EntitySpec from '../utils/entitySpec'
@@ -47,7 +46,9 @@ class ComponentList extends React.Component {
     if (this.props.definitions.sequence !== prevProps.definitions.sequence) this.incrementSequence()
     if (this.props.curations.sequence !== prevProps.curations.sequence) this.incrementSequence()
     if (this.props.sequence !== prevProps.sequence) this.incrementSequence()
-    if (!isEqual(this.props.list, prevProps.list)) this.incrementSequence()
+
+    // FIX: Check length change instead of deep isEqual on entire array to prevent continuous re-render updates
+    if (this.props.list?.length !== prevProps.list?.length) this.incrementSequence()
   }
 
   getDefinition(component) {
@@ -71,7 +72,7 @@ class ComponentList extends React.Component {
   }
 
   incrementSequence() {
-    this.setState({ ...this.state, contentSeq: this.state.contentSeq + 1 })
+    this.setState(prevState => ({ ...prevState, contentSeq: prevState.contentSeq + 1 }))
   }
 
   rowHeight({ index }) {
@@ -85,7 +86,7 @@ class ComponentList extends React.Component {
     this.incrementSequence()
   }
 
-  renderRow({ index, key, style }, toggleExpanded = null, showExpanded = false) {
+  renderRow({ index, key, style }) {
     const {
       list,
       readOnly,
@@ -107,11 +108,6 @@ class ComponentList extends React.Component {
     return (
       <div key={key} className="component-row" style={style}>
         <DefinitionEntry
-          // multiSelectEnabled={multiSelectEnabled}
-          // onSelectAll={onSelectAll}
-          // isSelected={selected[index] || false}
-          // toggleCheckbox={multiSelectEnabled && toggleCheckbox.bind(this, index)}
-          // draggable
           readOnly={readOnly}
           onClick={() => this.toggleExpanded(component)}
           curation={curation}
