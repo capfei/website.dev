@@ -90,7 +90,7 @@ class Header extends Component {
             <div className="d-flex py-4 px-2 justify-content-between align-items-center">
               <div className="clearly-logo">
                 <LinkContainer to={ROUTE_ROOT}>
-                  <img src={logo} alt="ClearlyDefine" />
+                  <img src={logo} alt="ClearlyDefined" />
                 </LinkContainer>
               </div>
               <nav className="clearly-nav d-flex justify-content-end align-items-center">
