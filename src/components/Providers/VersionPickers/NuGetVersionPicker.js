@@ -82,7 +82,7 @@ export default class NuGetVersionPicker extends Component {
             options.length === 0 ? 'Could not fetch versions, type a Nuget version' : 'Pick an Nuget version'
           }
           onChange={this.onChange}
-          positionFixed
+          positionFixed={false}
           onFocus={() => this.setState({ ...this.state, focus: true })}
           onBlur={() => this.setState({ ...this.state, focus: false })}
           clearButton
